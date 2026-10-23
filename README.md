@@ -31,6 +31,7 @@ In QML, every color comes from `quickshell/Theme.qml`.
   - `Launcher.qml`: an app launcher you can search
   - `Notifications.qml`: the notification daemon. Popups show in the top-right and close after 5s. Critical ones stay until you click them.
   - `PowerMenu.qml`: lock / logout / reboot / shutdown
+  - `Cheatsheet.qml`: on-screen keybind list (`SUPER + /`). If you change binds in `hyprland.conf`, update its list too.
 
 ## Dependencies
 
@@ -55,6 +56,7 @@ hyprctl reload   # or log out and back in
 | `SUPER + Return` | kitty |
 | `SUPER + Space` | launcher |
 | `SUPER + Escape` | power menu |
+| `SUPER + /` | keybind cheatsheet (Esc closes it) |
 | `SUPER + Q` | close window |
 | `SUPER + V` | float (and center) / tile |
 | `SUPER + F` | fullscreen |

@@ -15,4 +15,5 @@ ShellRoot {
     Launcher {}
     Notifications {}
     PowerMenu { id: power }
+    Cheatsheet {}
 }
