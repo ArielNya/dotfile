@@ -6,9 +6,16 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" 
 local terminal = "kitty"
 local mod = "SUPER"
 
--- Runs on launch and on every reload; pgrep keeps it to one copy of each
-hl.exec_cmd("pgrep -x hyprpaper || hyprpaper")
-hl.exec_cmd("pgrep -x qs || pgrep -x quickshell || qs")
+-- pgrep keeps it to one copy of each
+local function autostart()
+    hl.exec_cmd("pgrep -x hyprpaper || hyprpaper")
+    hl.exec_cmd("pgrep -x qs || pgrep -x quickshell || qs")
+end
+
+-- At login the config is read before the Wayland socket exists, so wait for start
+hl.on("hyprland.start", autostart)
+-- On hyprctl reload the compositor is already up: restart anything that died
+if os.getenv("WAYLAND_DISPLAY") then autostart() end
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
