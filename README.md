@@ -24,14 +24,14 @@ In QML, every color comes from `quickshell/Theme.qml`.
 
 ## What's in it
 
-- **hypr/**: Hyprland config. Tiling by default; floating windows get a magenta border, open centered, and can be moved and resized from the keyboard. Volume control, network/bluetooth settings, the calculator, file pickers and Picture-in-Picture (pinned) float on their own. Also includes a cobalt→violet→magenta border gradient, blur, violet-tinted shadows and snappy animations, plus hyprpaper
+- **hypr/**: Hyprland config (`hyprland.lua`, the Lua format Hyprland uses since 0.55). Tiling by default; floating windows get a magenta border, open centered, and can be moved and resized from the keyboard. Volume control, network/bluetooth settings, the calculator, file pickers and Picture-in-Picture (pinned) float on their own. Also includes a cobalt→violet→magenta border gradient, blur, violet-tinted shadows and snappy animations, plus hyprpaper
 - **kitty/**: a 16-color terminal scheme built from the palette
 - **quickshell/**
   - `Bar.qml`: workspace pills, clock, system tray, volume (scroll to change it, click to mute), battery (only on laptops) and a power button
   - `Launcher.qml`: an app launcher you can search
   - `Notifications.qml`: the notification daemon. Popups show in the top-right and close after 5s. Critical ones stay until you click them.
   - `PowerMenu.qml`: lock / logout / reboot / shutdown
-  - `Cheatsheet.qml`: on-screen keybind list (`SUPER + /`). If you change binds in `hyprland.conf`, update its list too.
+  - `Cheatsheet.qml`: on-screen keybind list (`SUPER + /`). If you change binds in `hyprland.lua`, update its list too.
 
 ## Dependencies
 
@@ -72,5 +72,6 @@ hyprctl reload   # or log out and back in
 ## If something looks off
 
 - **No wallpaper**: `hyprpaper.conf` uses the block syntax from hyprpaper 0.8. On an older hyprpaper, switch to the commented `preload`/`wallpaper` lines in that file.
-- **Bar isn't blurred, or `hyprctl reload` reports rule errors**: the `layerrule` and `windowrule` lines use the `<effect>, <match>` syntax from Hyprland 0.48–0.52. If your Hyprland uses the newer `match:` syntax, rewrite those lines.
+- **Config errors after `hyprctl reload`**: this config needs Hyprland 0.55 or newer (`hyprctl version`). Run `hyprctl configerrors` to see what failed.
+- **`cannot open ~/.config/hypr/hyprland.lua`**: your `~/.config/hypr` has no `hyprland.lua`. Pull the latest version of this repo and run `install.sh` again.
 - **QML errors**: run `qs` in a terminal to see them.

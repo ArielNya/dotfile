@@ -9,7 +9,7 @@ PanelWindow {
 
     readonly property var actions: [
         { icon: "󰌾", label: "Lock", color: Theme.electric, cmd: ["hyprlock"] },
-        { icon: "󰍃", label: "Logout", color: Theme.violet, cmd: ["hyprctl", "dispatch", "exit"] },
+        { icon: "󰍃", label: "Logout", color: Theme.violet, cmd: ["hyprctl", "dispatch", "hl.dsp.exit()"] },
         { icon: "󰜉", label: "Reboot", color: Theme.coral, cmd: ["systemctl", "reboot"] },
         { icon: "⏻", label: "Shutdown", color: Theme.magenta, cmd: ["systemctl", "poweroff"] },
     ]

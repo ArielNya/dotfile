@@ -7,7 +7,7 @@ import Quickshell.Wayland
 PanelWindow {
     id: root
 
-    // shortcut: hand-copied from hypr/hyprland.conf, keep in sync when binds change
+    // shortcut: hand-copied from hypr/hyprland.lua, keep in sync when binds change
     readonly property var sections: [
         { title: "Apps", color: Theme.electric, binds: [
             ["SUPER + Return", "terminal"],
