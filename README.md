@@ -68,6 +68,7 @@ hyprctl reload   # or log out and back in
 | `SUPER + 1-9` | go to workspace |
 | `SUPER + SHIFT + 1-9` | move window to workspace |
 | `SUPER + drag` | move (left) / resize (right) |
+| 3-finger swipe | next / previous workspace |
 
 ## If something looks off
 

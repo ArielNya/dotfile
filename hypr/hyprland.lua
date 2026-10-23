@@ -6,10 +6,9 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" 
 local terminal = "kitty"
 local mod = "SUPER"
 
-hl.on("hyprland.start", function()
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("qs")
-end)
+-- Runs on launch and on every reload; pgrep keeps it to one copy of each
+hl.exec_cmd("pgrep -x hyprpaper || hyprpaper")
+hl.exec_cmd("pgrep -x qs || pgrep -x quickshell || qs")
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -55,8 +54,9 @@ hl.config({
     },
 
     input = {
-        kb_layout = "us",
+        kb_layout = "br",
         follow_mouse = 1,
+        scroll_method = "2fg",
         touchpad = { natural_scroll = true },
     },
 
@@ -66,6 +66,9 @@ hl.config({
         background_color = "rgb(0d0b1a)",
     },
 })
+
+-- 3-finger swipe switches workspaces
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 
 hl.curve("snap", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
 hl.curve("smooth", { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } })

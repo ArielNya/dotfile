@@ -34,6 +34,7 @@ PanelWindow {
             ["SUPER + 1-9", "go to workspace"],
             ["SUPER + SHIFT + 1-9", "move window there"],
             ["SUPER + scroll", "next / previous"],
+            ["3-finger swipe", "next / previous"],
             ["SUPER + S", "show scratchpad"],
             ["SUPER + SHIFT + S", "send to scratchpad"],
         ] },
