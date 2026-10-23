@@ -91,6 +91,9 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "snap", 
 -- Blur Quickshell surfaces (bar, launcher, power menu, notifications, cheatsheet)
 hl.layer_rule({ match = { namespace = "^quickshell.*$" }, blur = true, ignore_alpha = 0 })
 
+-- Apps may not maximize themselves on open; it would cover the other tiles
+hl.window_rule({ name = "suppress-maximize-events", match = { class = ".*" }, suppress_event = "maximize" })
+
 -- --- Floating ---
 -- Floating windows get a magenta border so they read as lifted over the tiles
 hl.window_rule({ match = { float = true }, border_color = "rgba(e05fd0ff)" })
