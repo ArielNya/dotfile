@@ -24,7 +24,7 @@ In QML, every color comes from `quickshell/Theme.qml`.
 
 ## What's in it
 
-- **hypr/**: Hyprland config with a cobalt→violet→magenta border gradient, blur, violet-tinted shadows and snappy animations, plus hyprpaper
+- **hypr/**: Hyprland config. Tiling by default; floating windows get a magenta border, open centered, and can be moved and resized from the keyboard. Volume control, network/bluetooth settings, the calculator, file pickers and Picture-in-Picture (pinned) float on their own. Also includes a cobalt→violet→magenta border gradient, blur, violet-tinted shadows and snappy animations, plus hyprpaper
 - **kitty/**: a 16-color terminal scheme built from the palette
 - **quickshell/**
   - `Bar.qml`: workspace pills, clock, system tray, volume (scroll to change it, click to mute), battery (only on laptops) and a power button
@@ -56,7 +56,13 @@ hyprctl reload   # or log out and back in
 | `SUPER + Space` | launcher |
 | `SUPER + Escape` | power menu |
 | `SUPER + Q` | close window |
-| `SUPER + V` / `F` | float / fullscreen |
+| `SUPER + V` | float (and center) / tile |
+| `SUPER + F` | fullscreen |
+| `SUPER + C` | center floating window |
+| `SUPER + SHIFT + P` | pin window to every workspace |
+| `SUPER + ALT + arrows` | move floating window |
+| `SUPER + CTRL + arrows` | resize window |
+| `SUPER + S` / `SUPER + SHIFT + S` | show scratchpad / send window to it |
 | `SUPER + 1-9` | go to workspace |
 | `SUPER + SHIFT + 1-9` | move window to workspace |
 | `SUPER + drag` | move (left) / resize (right) |
@@ -64,5 +70,5 @@ hyprctl reload   # or log out and back in
 ## If something looks off
 
 - **No wallpaper**: `hyprpaper.conf` uses the block syntax from hyprpaper 0.8. On an older hyprpaper, switch to the commented `preload`/`wallpaper` lines in that file.
-- **Bar isn't blurred**: the `layerrule` lines use the classic syntax. If your Hyprland version changed its rule syntax, update those two lines.
+- **Bar isn't blurred, or `hyprctl reload` reports rule errors**: the `layerrule` and `windowrule` lines use the `<effect>, <match>` syntax from Hyprland 0.48–0.52. If your Hyprland uses the newer `match:` syntax, rewrite those lines.
 - **QML errors**: run `qs` in a terminal to see them.
