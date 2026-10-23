@@ -11,12 +11,12 @@ PanelWindow {
     signal powerClicked()
 
     anchors { top: true; left: true; right: true }
-    implicitHeight: 42
+    implicitHeight: 41
     color: "transparent"
 
     Rectangle {
         anchors.fill: parent
-        anchors.margins: 6
+        anchors.margins: 5
         anchors.bottomMargin: 0
         radius: Theme.radius
         color: Theme.baseTranslucent
@@ -59,7 +59,7 @@ PanelWindow {
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: Hyprland.dispatch("workspace " + ws.modelData.id)
+                        onClicked: Hyprland.dispatch("hl.dsp.focus({ workspace = " + ws.modelData.id + " })")
                     }
                 }
             }

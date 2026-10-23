@@ -7,7 +7,7 @@ import Quickshell.Wayland
 PanelWindow {
     id: root
 
-    // shortcut: hand-copied from hypr/hyprland.conf, keep in sync when binds change
+    // shortcut: hand-copied from hypr/hyprland.lua, keep in sync when binds change
     readonly property var sections: [
         { title: "Apps", color: Theme.electric, binds: [
             ["SUPER + Return", "terminal"],
@@ -34,6 +34,7 @@ PanelWindow {
             ["SUPER + 1-9", "go to workspace"],
             ["SUPER + SHIFT + 1-9", "move window there"],
             ["SUPER + scroll", "next / previous"],
+            ["3-finger swipe", "next / previous"],
             ["SUPER + S", "show scratchpad"],
             ["SUPER + SHIFT + S", "send to scratchpad"],
         ] },
